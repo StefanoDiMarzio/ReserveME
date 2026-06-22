@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "ReserveME",
+    "slug": "reserveme-mobile",
+    "scheme": "reserveme",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "backgroundColor": "#FBF3EC",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.reserveme.mobile",
+      "config": {
+        "googleMapsApiKey": "GOOGLE_MAPS_API_KEY_IOS_PLACEHOLDER"
+      },
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "ReserveME usa la tua posizione per mostrarti i centri più vicini a te."
+      }
+    },
+    "android": {
+      "package": "com.reserveme.mobile",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "config": {
+        "googleMaps": {
+          "apiKey": "GOOGLE_MAPS_API_KEY_ANDROID_PLACEHOLDER"
+        }
+      },
+      "permissions": ["ACCESS_COARSE_LOCATION", "ACCESS_FINE_LOCATION"]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-secure-store",
+      "expo-dev-client",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "ReserveME usa la tua posizione per mostrarti i centri più vicini a te."
+        }
+      ]
+    ]
+  }
+}

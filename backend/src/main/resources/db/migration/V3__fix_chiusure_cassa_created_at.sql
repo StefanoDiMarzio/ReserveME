@@ -1,0 +1,2 @@
+ALTER TABLE chiusure_cassa
+    ADD COLUMN created_at TIMESTAMP NOT NULL DEFAULT NOW();

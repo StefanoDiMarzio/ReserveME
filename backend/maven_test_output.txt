@@ -1,0 +1,556 @@
+16:20:49.717 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.reserveme.ReserveMeApplicationTests]: ReserveMeApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:20:49.816 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.reserveme.ReserveMeApplication for test class com.reserveme.ReserveMeApplicationTests
+16:20:49.956 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.5.3)
+
+2026-06-21 16:20:50 INFO  o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.2.Final
+2026-06-21 16:20:50 INFO  c.r.ReserveMeApplicationTests - Starting ReserveMeApplicationTests using Java 21.0.8 with PID 39260 (started by Stefano in C:\Users\Stefano\Desktop\ReserveME\ReserveME\backend)
+2026-06-21 16:20:50 DEBUG c.r.ReserveMeApplicationTests - Running with Spring Boot v3.5.3, Spring v6.2.8
+2026-06-21 16:20:50 INFO  c.r.ReserveMeApplicationTests - The following 1 profile is active: "test"
+2026-06-21 16:20:51 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-21 16:20:51 INFO  o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 78 ms. Found 11 JPA repository interfaces.
+2026-06-21 16:20:51 INFO  o.h.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-06-21 16:20:52 INFO  org.hibernate.Version - HHH000412: Hibernate ORM core version 6.6.18.Final
+2026-06-21 16:20:52 INFO  o.h.c.i.RegionFactoryInitiator - HHH000026: Second-level cache disabled
+2026-06-21 16:20:52 INFO  o.s.o.j.p.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-21 16:20:52 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-06-21 16:20:52 INFO  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-06-21 16:20:52 INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-06-21 16:20:52 WARN  org.hibernate.orm.deprecation - HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-21 16:20:52 INFO  o.hibernate.orm.connections.pooling - HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-21 16:20:53 INFO  o.h.e.t.j.p.i.JtaPlatformInitiator - HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    drop table if exists amministratori cascade 
+Hibernate: 
+    drop table if exists amministratori cascade 
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    drop table if exists appuntamenti cascade 
+Hibernate: 
+    drop table if exists appuntamenti cascade 
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    drop table if exists casse cascade 
+Hibernate: 
+    drop table if exists casse cascade 
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    drop table if exists chiusure_cassa cascade 
+Hibernate: 
+    drop table if exists chiusure_cassa cascade 
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    drop table if exists clienti cascade 
+Hibernate: 
+    drop table if exists clienti cascade 
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    drop table if exists movimenti_cassa cascade 
+Hibernate: 
+    drop table if exists movimenti_cassa cascade 
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    drop table if exists negozi cascade 
+Hibernate: 
+    drop table if exists negozi cascade 
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    drop table if exists prodotti cascade 
+Hibernate: 
+    drop table if exists prodotti cascade 
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    drop table if exists scontrini cascade 
+Hibernate: 
+    drop table if exists scontrini cascade 
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    drop table if exists servizi cascade 
+Hibernate: 
+    drop table if exists servizi cascade 
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    drop table if exists voci_scontrino cascade 
+Hibernate: 
+    drop table if exists voci_scontrino cascade 
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    create table amministratori (
+        created_at timestamp(6) not null,
+        updated_at timestamp(6) not null,
+        id uuid not null,
+        telefono varchar(20),
+        codice_univoco varchar(50) not null unique,
+        cognome varchar(100) not null,
+        nome varchar(100) not null,
+        email varchar(150) not null unique,
+        password varchar(255) not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table amministratori (
+        created_at timestamp(6) not null,
+        updated_at timestamp(6) not null,
+        id uuid not null,
+        telefono varchar(20),
+        codice_univoco varchar(50) not null unique,
+        cognome varchar(100) not null,
+        nome varchar(100) not null,
+        email varchar(150) not null unique,
+        password varchar(255) not null,
+        primary key (id)
+    )
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    create table appuntamenti (
+        cliente_id bigint not null,
+        created_at timestamp(6) not null,
+        data_ora_fine timestamp(6) not null,
+        data_ora_inizio timestamp(6) not null,
+        id bigint generated by default as identity,
+        negozio_id bigint not null,
+        servizio_id bigint not null,
+        updated_at timestamp(6) not null,
+        note TEXT,
+        stato enum ('ANNULLATO','COMPLETATO','CONFERMATO','IN_ATTESA') not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table appuntamenti (
+        cliente_id bigint not null,
+        created_at timestamp(6) not null,
+        data_ora_fine timestamp(6) not null,
+        data_ora_inizio timestamp(6) not null,
+        id bigint generated by default as identity,
+        negozio_id bigint not null,
+        servizio_id bigint not null,
+        updated_at timestamp(6) not null,
+        note TEXT,
+        stato enum ('ANNULLATO','COMPLETATO','CONFERMATO','IN_ATTESA') not null,
+        primary key (id)
+    )
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    create table casse (
+        saldo_contanti numeric(10,2),
+        saldo_pos numeric(10,2),
+        id bigint generated by default as identity,
+        negozio_id bigint not null unique,
+        ultimo_aggiornamento timestamp(6),
+        primary key (id)
+    )
+Hibernate: 
+    create table casse (
+        saldo_contanti numeric(10,2),
+        saldo_pos numeric(10,2),
+        id bigint generated by default as identity,
+        negozio_id bigint not null unique,
+        ultimo_aggiornamento timestamp(6),
+        primary key (id)
+    )
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    create table chiusure_cassa (
+        num_fatture integer,
+        num_scontrini integer,
+        totale_contanti numeric(10,2) not null,
+        totale_generale numeric(10,2) not null,
+        totale_pos numeric(10,2) not null,
+        cassa_id bigint not null,
+        created_at timestamp(6) not null,
+        data_chiusura timestamp(6) not null,
+        id bigint generated by default as identity,
+        note TEXT,
+        primary key (id)
+    )
+Hibernate: 
+    create table chiusure_cassa (
+        num_fatture integer,
+        num_scontrini integer,
+        totale_contanti numeric(10,2) not null,
+        totale_generale numeric(10,2) not null,
+        totale_pos numeric(10,2) not null,
+        cassa_id bigint not null,
+        created_at timestamp(6) not null,
+        data_chiusura timestamp(6) not null,
+        id bigint generated by default as identity,
+        note TEXT,
+        primary key (id)
+    )
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    create table clienti (
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        negozio_id bigint not null,
+        updated_at timestamp(6) not null,
+        telefono varchar(20) not null,
+        cognome varchar(100) not null,
+        nome varchar(100) not null,
+        email varchar(150),
+        note TEXT,
+        primary key (id)
+    )
+Hibernate: 
+    create table clienti (
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        negozio_id bigint not null,
+        updated_at timestamp(6) not null,
+        telefono varchar(20) not null,
+        cognome varchar(100) not null,
+        nome varchar(100) not null,
+        email varchar(150),
+        note TEXT,
+        primary key (id)
+    )
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    create table movimenti_cassa (
+        importo numeric(10,2) not null,
+        cassa_id bigint not null,
+        data timestamp(6) not null,
+        id bigint generated by default as identity,
+        scontrino_id bigint,
+        descrizione varchar(300),
+        metodo enum ('CONTANTI','MISTO','POS') not null,
+        tipo enum ('ENTRATA','USCITA') not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table movimenti_cassa (
+        importo numeric(10,2) not null,
+        cassa_id bigint not null,
+        data timestamp(6) not null,
+        id bigint generated by default as identity,
+        scontrino_id bigint,
+        descrizione varchar(300),
+        metodo enum ('CONTANTI','MISTO','POS') not null,
+        tipo enum ('ENTRATA','USCITA') not null,
+        primary key (id)
+    )
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    create table negozi (
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        updated_at timestamp(6) not null,
+        cap varchar(10),
+        admin_id uuid not null unique,
+        partita_iva varchar(20) unique,
+        telefono varchar(20),
+        citta varchar(100),
+        nome varchar(200) not null,
+        indirizzo varchar(300),
+        tipo enum ('BARBERIA','CENTRO_ESTETICO','CENTRO_MASSAGGI','PARRUCCHIERE') not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table negozi (
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        updated_at timestamp(6) not null,
+        cap varchar(10),
+        admin_id uuid not null unique,
+        partita_iva varchar(20) unique,
+        telefono varchar(20),
+        citta varchar(100),
+        nome varchar(200) not null,
+        indirizzo varchar(300),
+        tipo enum ('BARBERIA','CENTRO_ESTETICO','CENTRO_MASSAGGI','PARRUCCHIERE') not null,
+        primary key (id)
+    )
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    create table prodotti (
+        prezzo_acquisto numeric(10,2) not null,
+        prezzo_vendita numeric(10,2) not null,
+        quantita integer not null,
+        ricarico_percentuale numeric(5,2),
+        soglia_minima integer,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        negozio_id bigint not null,
+        updated_at timestamp(6) not null,
+        nome varchar(200) not null,
+        descrizione TEXT,
+        primary key (id)
+    )
+Hibernate: 
+    create table prodotti (
+        prezzo_acquisto numeric(10,2) not null,
+        prezzo_vendita numeric(10,2) not null,
+        quantita integer not null,
+        ricarico_percentuale numeric(5,2),
+        soglia_minima integer,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        negozio_id bigint not null,
+        updated_at timestamp(6) not null,
+        nome varchar(200) not null,
+        descrizione TEXT,
+        primary key (id)
+    )
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    create table scontrini (
+        importo_contanti numeric(10,2),
+        importo_pos numeric(10,2),
+        totale numeric(10,2) not null,
+        appuntamento_id bigint unique,
+        cliente_id bigint,
+        created_at timestamp(6) not null,
+        data_emissione timestamp(6) not null,
+        id bigint generated by default as identity,
+        negozio_id bigint not null,
+        numero_documento varchar(50) not null,
+        metodo_pagamento enum ('CONTANTI','MISTO','POS') not null,
+        stato enum ('ANNULLATO','EMESSO') not null,
+        tipo_documento enum ('FATTURA','SCONTRINO') not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table scontrini (
+        importo_contanti numeric(10,2),
+        importo_pos numeric(10,2),
+        totale numeric(10,2) not null,
+        appuntamento_id bigint unique,
+        cliente_id bigint,
+        created_at timestamp(6) not null,
+        data_emissione timestamp(6) not null,
+        id bigint generated by default as identity,
+        negozio_id bigint not null,
+        numero_documento varchar(50) not null,
+        metodo_pagamento enum ('CONTANTI','MISTO','POS') not null,
+        stato enum ('ANNULLATO','EMESSO') not null,
+        tipo_documento enum ('FATTURA','SCONTRINO') not null,
+        primary key (id)
+    )
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    create table servizi (
+        attivo boolean not null,
+        costo numeric(10,2) not null,
+        durata_minuti integer,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        negozio_id bigint not null,
+        updated_at timestamp(6) not null,
+        nome_trattamento varchar(200) not null,
+        descrizione TEXT,
+        info_aggiuntive TEXT,
+        primary key (id)
+    )
+Hibernate: 
+    create table servizi (
+        attivo boolean not null,
+        costo numeric(10,2) not null,
+        durata_minuti integer,
+        created_at timestamp(6) not null,
+        id bigint generated by default as identity,
+        negozio_id bigint not null,
+        updated_at timestamp(6) not null,
+        nome_trattamento varchar(200) not null,
+        descrizione TEXT,
+        info_aggiuntive TEXT,
+        primary key (id)
+    )
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    create table voci_scontrino (
+        prezzo_unitario numeric(10,2) not null,
+        quantita integer not null,
+        subtotale numeric(10,2) not null,
+        id bigint generated by default as identity,
+        prodotto_id bigint,
+        scontrino_id bigint not null,
+        servizio_id bigint,
+        descrizione varchar(300) not null,
+        primary key (id)
+    )
+Hibernate: 
+    create table voci_scontrino (
+        prezzo_unitario numeric(10,2) not null,
+        quantita integer not null,
+        subtotale numeric(10,2) not null,
+        id bigint generated by default as identity,
+        prodotto_id bigint,
+        scontrino_id bigint not null,
+        servizio_id bigint,
+        descrizione varchar(300) not null,
+        primary key (id)
+    )
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists appuntamenti 
+       add constraint FKgrqhpqb6emny3jd7sani5cjvu 
+       foreign key (cliente_id) 
+       references clienti
+Hibernate: 
+    alter table if exists appuntamenti 
+       add constraint FKgrqhpqb6emny3jd7sani5cjvu 
+       foreign key (cliente_id) 
+       references clienti
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists appuntamenti 
+       add constraint FKnjsnqiw0iw714nnt7egd8xh1m 
+       foreign key (negozio_id) 
+       references negozi
+Hibernate: 
+    alter table if exists appuntamenti 
+       add constraint FKnjsnqiw0iw714nnt7egd8xh1m 
+       foreign key (negozio_id) 
+       references negozi
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists appuntamenti 
+       add constraint FK9db5xaxy41ta3oftl58yhmlb9 
+       foreign key (servizio_id) 
+       references servizi
+Hibernate: 
+    alter table if exists appuntamenti 
+       add constraint FK9db5xaxy41ta3oftl58yhmlb9 
+       foreign key (servizio_id) 
+       references servizi
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists casse 
+       add constraint FKh0hj4shyrudb8fvag2i1su0vt 
+       foreign key (negozio_id) 
+       references negozi
+Hibernate: 
+    alter table if exists casse 
+       add constraint FKh0hj4shyrudb8fvag2i1su0vt 
+       foreign key (negozio_id) 
+       references negozi
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists chiusure_cassa 
+       add constraint FKp5fct6q19v5lbihsdi9fdlf5q 
+       foreign key (cassa_id) 
+       references casse
+Hibernate: 
+    alter table if exists chiusure_cassa 
+       add constraint FKp5fct6q19v5lbihsdi9fdlf5q 
+       foreign key (cassa_id) 
+       references casse
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists clienti 
+       add constraint FK4mm0opkytbka7uq0snjdqxc08 
+       foreign key (negozio_id) 
+       references negozi
+Hibernate: 
+    alter table if exists clienti 
+       add constraint FK4mm0opkytbka7uq0snjdqxc08 
+       foreign key (negozio_id) 
+       references negozi
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists movimenti_cassa 
+       add constraint FKnx8n05j8ttr7jbumrhpfkkj19 
+       foreign key (cassa_id) 
+       references casse
+Hibernate: 
+    alter table if exists movimenti_cassa 
+       add constraint FKnx8n05j8ttr7jbumrhpfkkj19 
+       foreign key (cassa_id) 
+       references casse
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists movimenti_cassa 
+       add constraint FK74enqw4d46mclisphjaq4bvro 
+       foreign key (scontrino_id) 
+       references scontrini
+Hibernate: 
+    alter table if exists movimenti_cassa 
+       add constraint FK74enqw4d46mclisphjaq4bvro 
+       foreign key (scontrino_id) 
+       references scontrini
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists negozi 
+       add constraint FKehmdx86nsr2fjcvs19ysa00nx 
+       foreign key (admin_id) 
+       references amministratori
+Hibernate: 
+    alter table if exists negozi 
+       add constraint FKehmdx86nsr2fjcvs19ysa00nx 
+       foreign key (admin_id) 
+       references amministratori
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists prodotti 
+       add constraint FKmsxt4vksbh7p3x0yarhyaehql 
+       foreign key (negozio_id) 
+       references negozi
+Hibernate: 
+    alter table if exists prodotti 
+       add constraint FKmsxt4vksbh7p3x0yarhyaehql 
+       foreign key (negozio_id) 
+       references negozi
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists scontrini 
+       add constraint FKn95dsj027p43w8do4hn9n5t0e 
+       foreign key (appuntamento_id) 
+       references appuntamenti
+Hibernate: 
+    alter table if exists scontrini 
+       add constraint FKn95dsj027p43w8do4hn9n5t0e 
+       foreign key (appuntamento_id) 
+       references appuntamenti
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists scontrini 
+       add constraint FKsm4hpr23n12mwp09ubt4n3g24 
+       foreign key (cliente_id) 
+       references clienti
+Hibernate: 
+    alter table if exists scontrini 
+       add constraint FKsm4hpr23n12mwp09ubt4n3g24 
+       foreign key (cliente_id) 
+       references clienti
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists scontrini 
+       add constraint FKrijnn35iud9e6degwtdir5rtg 
+       foreign key (negozio_id) 
+       references negozi
+Hibernate: 
+    alter table if exists scontrini 
+       add constraint FKrijnn35iud9e6degwtdir5rtg 
+       foreign key (negozio_id) 
+       references negozi
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists servizi 
+       add constraint FKi8a7cfco05csktul8xh87kvun 
+       foreign key (negozio_id) 
+       references negozi
+Hibernate: 
+    alter table if exists servizi 
+       add constraint FKi8a7cfco05csktul8xh87kvun 
+       foreign key (negozio_id) 
+       references negozi
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists voci_scontrino 
+       add constraint FKh9eu7hnjg47mgdfbwoxwundxs 
+       foreign key (prodotto_id) 
+       references prodotti
+Hibernate: 
+    alter table if exists voci_scontrino 
+       add constraint FKh9eu7hnjg47mgdfbwoxwundxs 
+       foreign key (prodotto_id) 
+       references prodotti
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists voci_scontrino 
+       add constraint FKjgy6ixt9oxqwg1493derjnena 
+       foreign key (scontrino_id) 
+       references scontrini
+Hibernate: 
+    alter table if exists voci_scontrino 
+       add constraint FKjgy6ixt9oxqwg1493derjnena 
+       foreign key (scontrino_id) 
+       references scontrini
+2026-06-21 16:20:53 DEBUG org.hibernate.SQL - 
+    alter table if exists voci_scontrino 
+       add constraint FKrm8r0lyffaau7ub9ww162rbd2 
+       foreign key (servizio_id) 
+       references servizi
+Hibernate: 
+    alter table if exists voci_scontrino 
+       add constraint FKrm8r0lyffaau7ub9ww162rbd2 
+       foreign key (servizio_id) 
+       references servizi
+2026-06-21 16:20:53 INFO  o.s.o.j.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-21 16:20:54 INFO  o.s.d.j.r.query.QueryEnhancerFactory - Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-21 16:20:56 INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name customUserDetailsService
+2026-06-21 16:20:57 INFO  c.r.ReserveMeApplicationTests - Started ReserveMeApplicationTests in 7.282 seconds (process running for 8.079)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+WARNING: A Java agent has been loaded dynamically (C:\Users\Stefano\.m2\repository\net\bytebuddy\byte-buddy-agent\1.17.6\byte-buddy-agent-1.17.6.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
